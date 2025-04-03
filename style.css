@@ -1,0 +1,257 @@
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 15px;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-bottom: none;
+    padding: 15px;
+}
+
+#delete-all {
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+#delete-all:not(.d-none) {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#delete-all:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.todo-title {
+    color: #000;
+    font-weight: 600;
+}
+
+.form-check-label {
+    color: #000;
+    font-weight: 500;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.todo-item.completed {
+    background-color: #f8f9fa;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.todo-text {
+    flex-grow: 1;
+    margin: 0 15px;
+    font-size: 1.1rem;
+    word-break: break-word;
+}
+
+.category-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.category-personal { background-color: #e3f2fd; color: #1976d2; }
+.category-work { background-color: #fce4ec; color: #c2185b; }
+.category-shopping { background-color: #e8f5e9; color: #388e3c; }
+.category-other { background-color: #fff3e0; color: #f57c00; }
+
+.due-date {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.due-date.overdue {
+    color: #dc3545;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    color: #dc3545;
+    background: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.delete-btn:hover {
+    color: #c82333;
+    background-color: #fff5f5;
+}
+
+.filters {
+    margin-bottom: 15px;
+}
+
+.filters .btn {
+    flex: 1;
+}
+
+.filters .btn.active {
+    background-color: #667eea;
+    color: white;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+.todo-item.removing {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 10px 15px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102,126,234,0.25);
+}
+
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.2em;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #667eea;
+    border-color: #667eea;
+}
+
+.swal2-popup {
+    border-radius: 15px !important;
+    padding: 2em !important;
+}
+
+.swal2-title {
+    color: #333 !important;
+    font-size: 1.5em !important;
+}
+
+.swal2-content {
+    color: #666 !important;
+}
+
+.swal2-confirm {
+    background-color: #667eea !important;
+    border-radius: 8px !important;
+}
+
+.swal2-cancel {
+    border-radius: 8px !important;
+}
+
+.swal2-toast {
+    background: #fff !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+@media (max-width: 576px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .card-header h3 {
+        margin-bottom: 10px;
+    }
+    
+    .form-check {
+        margin-top: 5px;
+    }
+    
+    .todo-item {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    
+    .todo-text {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .category-badge, .due-date {
+        margin-bottom: 5px;
+    }
+    
+    .filters .btn {
+        padding: 5px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .row.g-3 > div {
+        margin-bottom: 10px;
+    }
+    
+    .mt-3 {
+        margin-top: 10px !important;
+    }
+} 
